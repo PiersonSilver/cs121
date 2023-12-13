@@ -1,0 +1,14 @@
+<students>
+    <student id="1">
+        <firstname>Theodore</firstname>
+        <lastname>Hinklebottom</lastname>
+        <major>Computer Science</major>
+        <gpa>4.0</gpa>
+    </student>
+    <student id="2">
+        <firstname>Hank</firstname>
+        <lastname>Twinklehorn</lastname>
+        <major>Anthropology</major>
+        <gpa>2.8</gpa>
+    </student>
+</students>
