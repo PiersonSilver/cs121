@@ -1,7 +1,5 @@
 package projectTwo;
 
-import weekFive.FileRead;
-
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ public class Bank {
     }
     public void addUser(String name, double balance){
         int routingNumber = random.nextInt(1000000, 10000000);
-        ArrayList<Object> info = new ArrayList<Object>(){
+        ArrayList<Object> info = new ArrayList<>(){
             {
                 add(name);
                 add(routingNumber);
@@ -40,7 +38,7 @@ public class Bank {
         String name = JOptionPane.showInputDialog("Enter User Name:");
         int routingNumber = random.nextInt(1000000, 10000000);
         double balance = Double.parseDouble(JOptionPane.showInputDialog("Enter User Balance:"));
-        ArrayList<Object> idk = new ArrayList<Object>(){
+        ArrayList<Object> idk = new ArrayList<>(){
             {
                 add(name);
                 add(routingNumber);
@@ -74,6 +72,7 @@ public class Bank {
             }
             hash.put(id,info);
         }
+        System.out.println("Data Read From File");
         br.close();
         return hash;
     }
@@ -93,6 +92,7 @@ public class Bank {
                 bw.write(String.format("ID:%d\n%s\n%s\n%s\n", id, info.get(0), info.get(1), info.get(2)));
             }
         }
+        System.out.println("Data Written to File");
         bw.close();
     }
 }

@@ -35,24 +35,28 @@ public class BankProcesses {
         }
         else {
             ArrayList<Object> info = fleecaHash.get(id);
-            info.set(2, getBalance(id) + change);
-            fleecaHash.replace(id, info);
             if (change >= 0) {
+                info.set(2, BigDecimal.valueOf(Double.parseDouble(info.get(2).toString())).add(BigDecimal.valueOf(change)));
                 System.out.printf("$%.2f Added to %s's Balance\n", Math.abs(change), info.get(0));
             } else {
+                info.set(2, BigDecimal.valueOf(Double.parseDouble(info.get(2).toString())).subtract(BigDecimal.valueOf(Math.abs(change))));
                 System.out.printf("$%.2f Deducted from %s's Balance\n", Math.abs(change), info.get(0));
             }
+            fleecaHash.replace(id, info);
         }
     }
-    public void tranferFunds(int from, int to, double amount){
-        if(!fleecaHash.containsKey(from) || !fleecaHash.containsKey(to)){
-            System.out.println("One or More Inputted Account Does Not Exist");
+    public void transferFunds(int from, int to, double amount){
+        if(!fleecaHash.containsKey(from)){
+            System.out.println("Account ID: " + from + " Does Not Exist");
+        }
+        else if (!fleecaHash.containsKey(to)) {
+            System.out.println("Account ID: " + to + " Does Not Exist");
         }
         else {
             ArrayList<Object> info1 = fleecaHash.get(from);
             ArrayList<Object> info2 = fleecaHash.get(to);
-            info2.set(2, BigDecimal.valueOf((Double)info2.get(2)).add(BigDecimal.valueOf(amount)));
-            info1.set(2, BigDecimal.valueOf((Double) info1.get(2)).subtract(BigDecimal.valueOf(amount)));
+            info2.set(2, BigDecimal.valueOf(Double.parseDouble(info2.get(2).toString())).add(BigDecimal.valueOf(amount)));
+            info1.set(2, BigDecimal.valueOf(Double.parseDouble(info1.get(2).toString())).subtract(BigDecimal.valueOf(amount)));
             System.out.printf("$%.2f Transferred from %s to %s\n", amount, info1.get(0), info2.get(0));
         }
     }
