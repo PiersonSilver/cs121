@@ -1,7 +1,8 @@
-#Pierson Silver - CS121
+<h1 align="center">CS121 Pierson Silver</h1>
+<h3 align="center">Computer Science Major at Ball State University</h3>
 
 
-##Favorite Projects
+## Favorite Projects
 | File                        | Description                                                                                                                                                                                                                                                               | How to Use                                                                                                                                                                                                                 |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | projectOne                  | A game that has characters battle, with different player stats combining to determine the winner of each battle. Each battle is worth 1 point and the overall game is played to a score the user chooses                                                                  | Run the main function in the CharacterBattle file and enter a score to play to, then each player selects a preset character (Assassin, Warrior, or Knight) to use in each battle  until a player reaches the score to win  |
